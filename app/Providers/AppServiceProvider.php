@@ -11,6 +11,7 @@ use Illuminate\Support\ServiceProvider;
 use Lunar\Admin\Support\Facades\LunarPanel;
 use Lunar\Base\ShippingModifiers;
 use Lunar\Shipping\ShippingPlugin;
+use Stephenjude\FilamentTwoFactorAuthentication\TwoFactorAuthenticationPlugin;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,13 +20,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        LunarPanel::panel(
-            fn ($panel) => $panel
-                ->path('admin')
-                ->plugins([
-                    new ShippingPlugin,
-                ])
-        )
+        LunarPanel::disableTwoFactorAuth()
+            ->panel(
+                fn ($panel) => $panel
+                    ->path('admin')
+                    ->plugins([
+                        new ShippingPlugin,
+                        TwoFactorAuthenticationPlugin::make()
+                            ->enableTwoFactorAuthentication()
+                            ->addTwoFactorMenuItem(),
+                    ])
+            )
             ->register();
     }
 
