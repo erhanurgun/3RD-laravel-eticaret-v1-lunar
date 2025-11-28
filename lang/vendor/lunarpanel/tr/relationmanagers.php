@@ -265,8 +265,10 @@ return [
         ],
     ],
     'tax_rate_amounts' => [
+        'title' => 'Vergi Oranı Tutarları',
+        'title_plural' => 'Vergi Oranı Tutarları',
         'table' => [
-            'description' => '',
+            'description' => 'Bu vergi oranı için vergi sınıflarına göre tutarları tanımlayın.',
             'percentage' => [
                 'label' => 'Yüzde',
             ],

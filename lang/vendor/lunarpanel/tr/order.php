@@ -245,6 +245,9 @@ return [
     ],
 
     'action' => [
+        'view_customer' => [
+            'label' => 'Müşteriyi Görüntüle',
+        ],
         'bulk_update_status' => [
             'label' => 'Durumu Güncelle',
             'notification' => 'Sipariş durumları güncellendi',
