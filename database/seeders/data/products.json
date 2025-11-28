@@ -1,17 +1,17 @@
 [
     {
         "attributes": {
-            "name": "Levi's® 501® Straight Fit Jeans",
-            "description": "A cultural icon worn by generations, defining style for decades. The iconic straight fit with the signature button fly. Since Levi's® invented it in 1873, people have made them their own by ripping, tearing, repairing, dying and marking them up for total "
+            "name": "Levi's 501 Orijinal Kesim Kot Pantolon",
+            "description": "Nesiller boyu giyilen, on yıllarca stili tanımlayan kültürel bir ikon. İmzası niteliğindeki düğme kapamalı ikonik düz kesim. Levi's 1873'te icat ettiğinden beri, insanlar yırtarak, onararak, boyayarak ve işaretleyerek kendi stillerini yarattı."
         },
-        "collections": ["trousers", "sale"],
+        "collections": ["pantolonlar", "indirim"],
         "sku": "LEV-856",
         "price": "8599",
         "image": "black_jeans.jpg",
         "brand": "Levis",
         "options": [
             {
-                "name": "Size",
+                "name": "Beden",
                 "shared": false,
                 "values": [
                     "30 S (L30)",
@@ -24,76 +24,76 @@
     },
     {
         "attributes": {
-            "name": "Chuck 70 Raw Edge",
-            "description": "The timeless style you know and love gets remixed with light padding and unexpected raw-edge details. An elevated style icon, it features more cushioning to keep you looking ”and feeling” good all day. The Chuck 70 holds its own on fashion week runways and city streets, making it the go-to sneaker for those looking to enhance and express their style.",
+            "name": "Chuck 70 Raw Edge Spor Ayakkabı",
+            "description": "Bildiğiniz ve sevdiğiniz zamansız stil, hafif dolgulu ve beklenmedik ham kenar detaylarıyla yeniden yorumlandı. Yükseltilmiş bir stil ikonu olan bu ayakkabı, gün boyu iyi görünmenizi ve hissetmenizi sağlamak için daha fazla yastıklama sunar. Chuck 70, moda haftası podyumlarından sokak stiline kadar her yerde kendini gösterir.",
             "details": [
-                "High-top sneaker, crafted with organic canvas for an elevated look and feel",
-                "OrthoLite cushioning for all-day comfort",
-                "Raw-cut textile inserts for added padding",
-                "Shiny rubber sidewall and winged tongue stitching",
-                "Heritage details like a 1970s heel logo nod to its legacy"
+                "Yüksek bilekli spor ayakkabı, yükseltilmiş görünüm ve his için organik kanvas ile üretildi",
+                "Gün boyu konfor için OrthoLite yastıklama",
+                "Ek yastıklama için ham kesim tekstil ekleri",
+                "Parlak kauçuk yan duvar ve kanatlı dil dikişi",
+                "1970'lerin topuk logosu gibi miras detayları"
             ]
         },
         "brand": "Converse",
-        "collections": ["shoes", "sale"],
+        "collections": ["ayakkabilar", "indirim"],
         "sku": "CONV-70",
         "price": "15000",
         "image": "converse.jpg",
         "options": [
             {
-                "name": "Shoe Size",
+                "name": "Ayakkabı Numarası",
                 "shared": true,
-                "values": ["UK 5", "UK 6", "UK 7", "UK 8", "UK 9", "UK 10"]
+                "values": ["39", "40", "41", "42", "43", "44"]
             }
         ]
     },
     {
         "attributes": {
-            "name": "Air Jordan",
-            "description": "Cold, wet weather usually means it's time to put away your J's until the spring.With the Air Jordan 1 Acclimate, those days are over.Part boot, part sneaker, it uses winterized materials in a toe-to-heel overhaul that's designed to help you stay warm and dry without losing the iconic AJ1 appeal."
+            "name": "Air Jordan Spor Ayakkabı",
+            "description": "Soğuk, yağışlı hava genellikle bahara kadar Jordan'larınızı saklamanız gerektiğini gösterir. Air Jordan 1 Acclimate ile o günler sona erdi. Yarı bot, yarı spor ayakkabı olan bu model, ikonik AJ1 cazibesini kaybetmeden sıcak ve kuru kalmanıza yardımcı olmak için tasarlanmış kışlık malzemeler kullanır."
         },
         "brand": "Nike",
-        "collections": ["shoes"],
+        "collections": ["ayakkabilar"],
         "sku": "AIRJ-70",
         "price": "18599",
         "image": "nike_hightop.jpg",
         "options": [
             {
-                "name": "Shoe Size",
+                "name": "Ayakkabı Numarası",
                 "shared": true,
-                "values": ["UK 5", "UK 6", "UK 7", "UK 8", "UK 9", "UK 10"]
+                "values": ["39", "40", "41", "42", "43", "44"]
             }
         ]
     },
     {
         "attributes": {
-            "name": "WORKER 20.5\" - CHINO SHORTS FOR MEN",
-            "description": "Our mens Original 20 joggers are a basic staple. Featuring everything you need from the perfect pair of relaxed trousers; draw cord and elasticated waist, elasticated cuffs for comfort fit, side and back pockets with a popper fastening and Saltrock branding. With a super soft, peach fluff finished inside for warmth and comfort."
+            "name": "Erkek Chino Şort",
+            "description": "Original 20 eşofmanımız temel bir parçadır. Mükemmel bir rahat pantolon için ihtiyacınız olan her şey; iple bağlanan ve elastik bel, konforlu uyum için elastik bilekler, çıt çıt kapamalı yan ve arka cepler ve Saltrock markalaması. Sıcaklık ve konfor için süper yumuşak, şeftali tüylü iç kısmı var."
         },
         "brand": "Saltrock",
-        "collections": ["trousers"],
+        "collections": ["pantolonlar"],
         "sku": "SLTRCK-70",
         "price": "2500",
         "image": "beige_trousers.jpg"
     },
     {
         "attributes": {
-            "name": "Nike Sportswear Tech Fleece",
-            "description": "Ready for cooler weather, the Nike Sportswear Tech Fleece Joggers feature an updated fit perfect for everyday wear. Roomy through the thigh, this tapered design narrows at the knee to give you a comfortable feel without losing the clean, tailored look you love. Tall ribbed cuffs complete the jogger look while a zipped pocket on the right leg provides secure small-item storage and elevates the look."
+            "name": "Nike Sportswear Tech Fleece Eşofman",
+            "description": "Serin havaya hazır Nike Sportswear Tech Fleece Jogger, günlük giyim için mükemmel güncellenmiş bir kesim sunar. Uyluklardan geniş, dizde daralan bu konik tasarım, sevdiğiniz temiz, özel dikim görünümü kaybetmeden rahat bir his sunar. Uzun nervürlü bilekler eşofman görünümünü tamamlarken, sağ bacaktaki fermuarlı cep güvenli küçük eşya depolaması sağlar."
         },
         "brand": "Nike",
-        "collections": ["trousers", "sale"],
+        "collections": ["pantolonlar", "indirim"],
         "sku": "CU4495-410",
         "price": "7995",
         "image": "green_trousers.jpg"
     },
     {
         "attributes": {
-            "name": "NICCE Mens Original Hood",
-            "description": "Original overhead hood featuring a white chest logo, with a drawstring hood, pouch pocket and cuffed sleeves and hem. A simple and easy piece, great to layer and throw on with jeans or joggers."
+            "name": "NICCE Erkek Original Kapşonlu",
+            "description": "Beyaz göğüs logosu, iple çekilen kapüşon, kanguru cebi ve manşetli kollar ve etekli original kapşonlu üst. Basit ve kolay bir parça, kot pantolon veya eşofmanla katmanlamak ve giymek için harika."
         },
         "brand": "NICCE",
-        "collections": ["hoodies", "sale"],
+        "collections": ["kapsonlular", "indirim"],
         "sku": "NICCE-50",
         "price": "5000",
         "image": "nicce_hoodie.jpg"
@@ -101,39 +101,39 @@
     {
         "attributes": {
             "name": "Nike Pegasus Trail 3",
-            "description": "Find your wings with an off-road run. The Nike Pegasus Trail 3 has the same cushioned comfort you love, with a design that nods to the classic Pegasus look. It's got tough traction to help you stay moving through rocky terrain. More support around the midfoot helps you feel secure on your journey."
+            "description": "Arazi koşusunda kanatlarınızı bulun. Nike Pegasus Trail 3, sevdiğiniz yastıklı konfora sahipken, klasik Pegasus görünümüne göz kırpan bir tasarıma sahip. Kayalık arazide hareket etmenize yardımcı olmak için sert çekiş sunar. Orta ayak çevresinde daha fazla destek, yolculuğunuzda güvenli hissetmenizi sağlar."
         },
         "brand": "Nike",
-        "collections": ["shoes"],
+        "collections": ["ayakkabilar"],
         "sku": "DA8698-001",
         "price": "11495",
         "image": "nike_black.jpg",
         "options": [
             {
-                "name": "Shoe Size",
+                "name": "Ayakkabı Numarası",
                 "shared": true,
-                "values": ["UK 5", "UK 6", "UK 7", "UK 8", "UK 9", "UK 10"]
+                "values": ["39", "40", "41", "42", "43", "44"]
             }
         ]
     },
     {
         "attributes": {
-            "name": "Men's Full-Zip Fleece Hoodie",
-            "description": "Made in Milan, Italy with thoughtful consideration of every last detail, this full-zip hoodie is designed for lightweight warmth and 360 degrees of comfort. A buttery-soft blend of cotton, cashmere and elastane lies flat on your skin for a smooth feel."
+            "name": "Erkek Tam Fermuarlı Polar Kapşonlu",
+            "description": "İtalya Milano'da üretilen, her son detayın özenle düşünüldüğü bu tam fermuarlı kapşonlu, hafif sıcaklık ve 360 derece konfor için tasarlanmıştır. Pamuk, kaşmir ve elastan karışımı yumuşacık ipeksi kumaşın, pürüzsüz bir his için cildinize düz oturur."
         },
         "brand": "Nike",
-        "collections": ["hoodies"],
+        "collections": ["kapsonlular"],
         "sku": "NIKE-FOO-50",
         "price": "8000",
         "image": "nike_hoodie_blue.jpg"
     },
     {
         "attributes": {
-            "name": "Nike Red Hoodie",
-            "description": "This Hoodie outfits you in cosy comfort that's easy to layer. It's made from soft, warm fleece with an oversized chest graphic to make it clear who you're repping."
+            "name": "Nike Kırmızı Kapşonlu",
+            "description": "Bu Kapşonlu, kolayca katmanlanabilen rahat bir konfor sunar. Yumuşak, sıcak polar kumaştan yapılmış ve kimi temsil ettiğinizi açıkça gösterecek büyük göğüs grafikli."
         },
         "brand": "Nike",
-        "collections": ["hoodies"],
+        "collections": ["kapsonlular"],
         "sku": "DH9320-657",
         "price": "5495",
         "image": "nike_hoodie_red.jpg"
@@ -141,68 +141,68 @@
     {
         "attributes": {
             "name": "Nike Metcon 7",
-            "description": "The Nike Metcon 7 is the gold standard for weight training—even tougher and more stable than previous versions.We've also added React foam that ups the comfort to keep you ready for high-intensity cardio.Plus, a tab locks down your laces so you can forget about them coming untied when you're focused on your next PR."
+            "description": "Nike Metcon 7, ağırlık antrenmanı için altın standarttır - önceki versiyonlardan daha sağlam ve daha istikrarlı. Yüksek yoğunluklu kardiyoya hazır kalmanız için konforu artıran React köpük de ekledik. Ayrıca, bir sonraki kişisel rekorunuza odaklandığınızda bağcıklarınızın çözülmesini önleyen bir kilit sekmesi var."
         },
         "brand": "Nike",
-        "collections": ["shoes", "sale"],
+        "collections": ["ayakkabilar", "indirim"],
         "sku": "CZ8281-234",
         "price": "11495",
         "image": "nike_orange_white.jpg",
         "options": [
             {
-                "name": "Shoe Size",
+                "name": "Ayakkabı Numarası",
                 "shared": true,
-                "values": ["UK 5", "UK 6", "UK 7", "UK 8", "UK 9", "UK 10"]
+                "values": ["39", "40", "41", "42", "43", "44"]
             }
         ]
     },
     {
         "attributes": {
             "name": "Nike Air Huarache",
-            "description": "Built to fit your foot and designed for comfort, the Nike Air Huarache brings back a street-level favourite. Updated with sleek colours, this version has soft, synthetic leather accents on the upper that mix with super-breathable, perfectly shined neoprene-like fabric for easy styling."
+            "description": "Ayağınıza uygun ve konfor için tasarlanmış Nike Air Huarache, sokak seviyesindeki favoriyi geri getiriyor. Şık renklerle güncellenen bu versiyon, kolay stil için süper nefes alan, mükemmel parlatılmış neopren benzeri kumaşla karışan üstte yumuşak, sentetik deri aksa sahiptir."
         },
         "brand": "Nike",
-        "collections": ["shoes"],
+        "collections": ["ayakkabilar"],
         "sku": "DR0141-001",
         "price": "11495",
         "image": "nike_shoe_1.jpg",
         "options": [
             {
-                "name": "Shoe Size",
+                "name": "Ayakkabı Numarası",
                 "shared": true,
-                "values": ["UK 5", "UK 6", "UK 7", "UK 8", "UK 9", "UK 10"]
+                "values": ["39", "40", "41", "42", "43", "44"]
             }
         ]
     },
     {
         "attributes": {
-            "name": "Women's Woven Tennis Trousers",
-            "description": "Made with multiple oversized pockets, the Naomi Osaka Trousers are a wardrobe staple with plenty of storage.Signature Naomi Osaka details, like her logo on the left pocket, put a premium spin on any outfit."
+            "name": "Kadın Dokuma Tenis Pantolon",
+            "description": "Birden fazla büyük cep ile yapılan Naomi Osaka Pantolon, bol depolama alanına sahip bir gardırop temel parçasıdır. Sol cepteki logosu gibi imza Naomi Osaka detayları, herhangi bir kıyafete özel bir hava katar."
         },
         "brand": "Nike",
-        "collections": ["sale"],
+        "collections": ["indirim"],
         "sku": "DJ4661-010",
         "price": "9995",
         "image": "nike_trousers.jpg"
     },
     {
         "attributes": {
-            "name": "Classic Hooded Sweat",
-            "description": "Double fabric hood"
+            "name": "Klasik Kapşonlu Sweatshirt",
+            "description": "Çift katlı kumaşlı kapüşon"
         },
-        "collections": ["hoodies"],
+        "collections": ["kapsonlular"],
         "sku": "HOOD-123",
         "price": "1099",
         "image": "tshirt.jpg",
         "brand": "Fruit of the loom",
         "options": [
             {
-                "name": "Colour",
+                "name": "Renk",
                 "shared": true,
-                "values": ["Black", "Blue", "Red", "Green"]
+                "values": ["Siyah", "Mavi", "Kırmızı", "Yeşil"]
             },
             {
-                "name": "Size",
+                "name": "Beden",
                 "shared": true,
                 "values": ["Small", "Medium", "Large", "X-Large"]
             }

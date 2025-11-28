@@ -12,7 +12,6 @@ use Lunar\Models\Attribute;
 use Lunar\Models\Brand;
 use Lunar\Models\Collection;
 use Lunar\Models\Currency;
-use Lunar\Models\Language;
 use Lunar\Models\Price;
 use Lunar\Models\Product;
 use Lunar\Models\ProductOption;
@@ -20,30 +19,27 @@ use Lunar\Models\ProductOptionValue;
 use Lunar\Models\ProductType;
 use Lunar\Models\ProductVariant;
 use Lunar\Models\TaxClass;
-use App\Jobs\GenerateVariants;
 
 class ProductSeeder extends AbstractSeeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
+     * Demo ürünleri oluşturur.
      */
     public function run(): void
     {
-        $products = $this->getSeedData('products');
-
-        $attributes = Attribute::get();
-
         $productType = ProductType::first();
-
         $taxClass = TaxClass::getDefault();
-
         $currency = Currency::getDefault();
 
-        $collections = Collection::get();
+        // Gerekli veriler yoksa çık
+        if (!$productType || !$taxClass || !$currency) {
+            return;
+        }
 
-        $language = Language::getDefault();
+        $products = $this->getSeedData('products');
+        $attributes = Attribute::get();
+        $collections = Collection::get();
 
         DB::transaction(function () use ($products, $attributes, $productType, $taxClass, $currency, $collections) {
             $products->each(function ($product) use ($attributes, $productType, $taxClass, $currency, $collections) {
@@ -52,9 +48,14 @@ class ProductSeeder extends AbstractSeeder
                 foreach ($product->attributes as $attributeHandle => $value) {
                     $attribute = $attributes->first(fn ($att) => $att->handle == $attributeHandle);
 
+                    // Attribute bulunamazsa atla
+                    if (!$attribute) {
+                        continue;
+                    }
+
                     if ($attribute->type == TranslatedText::class) {
                         $attributeData[$attributeHandle] = new TranslatedText([
-                            'en' => new Text($value),
+                            'tr' => new Text($value),
                         ]);
 
                         continue;
@@ -135,10 +136,10 @@ class ProductSeeder extends AbstractSeeder
                     if (! $optionModel) {
                         $optionModel = ProductOption::create([
                             'name' => [
-                                'en' => $option->name,
+                                'tr' => $option->name,
                             ],
                             'label' => [
-                                'en' => $option->name,
+                                'tr' => $option->name,
                             ],
                             'shared' => $option->shared,
                             'handle' => Str::slug($option->name),
@@ -158,7 +159,7 @@ class ProductSeeder extends AbstractSeeder
                                 'position' => $optionIndex,
 
                                 'name' => [
-                                    'en' => $value,
+                                    'tr' => $value,
                                 ],
                             ]);
                         }

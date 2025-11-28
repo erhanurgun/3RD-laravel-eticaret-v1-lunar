@@ -16,9 +16,13 @@ class CollectionSeeder extends AbstractSeeder
      */
     public function run(): void
     {
-        $collections = $this->getSeedData('collections');
-
         $collectionGroup = CollectionGroup::first();
+
+        if (!$collectionGroup) {
+            return;
+        }
+
+        $collections = $this->getSeedData('collections');
 
         DB::transaction(function () use ($collections, $collectionGroup) {
             foreach ($collections as $collection) {
@@ -26,10 +30,10 @@ class CollectionSeeder extends AbstractSeeder
                     'collection_group_id' => $collectionGroup->id,
                     'attribute_data' => [
                         'name' => new TranslatedText([
-                            'en' => new Text($collection->name),
+                            'tr' => new Text($collection->name),
                         ]),
                         'description' => new TranslatedText([
-                            'en' => new Text($collection->description),
+                            'tr' => new Text($collection->description),
                         ]),
                     ],
                 ]);

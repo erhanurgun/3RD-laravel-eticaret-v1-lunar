@@ -12,6 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Lunar temel verileri (diger seeder'lardan once calistirilmali)
+        $this->call(LunarSeeder::class);
+
+        // Admin paneli kullanicilari
+        $this->call(StaffSeeder::class);
+
+        // Uygulama verileri
         $this->call(CollectionSeeder::class);
         $this->call(AttributeSeeder::class);
         $this->call(TaxSeeder::class);

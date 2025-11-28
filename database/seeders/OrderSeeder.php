@@ -12,6 +12,7 @@ use Lunar\Base\ValueObjects\Cart\TaxBreakdownAmount;
 use Lunar\DataTypes\Price;
 use Lunar\Facades\Pricing;
 use Lunar\Models\Channel;
+use Lunar\Models\Country;
 use Lunar\Models\Currency;
 use Lunar\Models\Order;
 use Lunar\Models\OrderAddress;
@@ -21,18 +22,26 @@ class OrderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Demo siparişler oluşturur.
      */
     public function run(): void
     {
-        DB::transaction(function () {
-            $variants = ProductVariant::get();
-            $users = User::get();
-            $faker = Factory::create();
-            $channel = Channel::getDefault();
-            $currency = Currency::getDefault();
+        $variants = ProductVariant::get();
+        $users = User::get();
+        $channel = Channel::getDefault();
+        $currency = Currency::getDefault();
+        $turkey = Country::where('iso3', 'TUR')->first();
 
-            $cardTypes = ['visa', 'mastercard'];
+        // Gerekli veriler yoksa çık
+        if (!$channel || !$currency || !$turkey || $variants->isEmpty()) {
+            return;
+        }
+
+        $countryId = $turkey->id;
+
+        DB::transaction(function () use ($variants, $users, $channel, $currency, $countryId) {
+            // en_US kullan çünkü tr_TR'de bazı faker formatları yok
+            $faker = Factory::create('en_US');
 
             for ($i = 0; $i < 201; $i++) {
                 $generator = app(OrderReferenceGenerator::class);
@@ -111,28 +120,52 @@ class OrderSeeder extends Seeder
                 $orderModel->reference = $generator->generate($orderModel);
                 $orderModel->save();
 
-                // Shipping / Billing address
-                $shipping = OrderAddress::factory()->create([
-                    'order_id' => $orderModel->id,
-                    'type' => 'shipping',
-                    'country_id' => 235, // UK
-                ]);
+                // Kargo adresi
+                $shippingData = $this->createOrderAddressData($faker, $orderModel->id, 'shipping', $countryId);
+                $shipping = OrderAddress::create($shippingData);
 
+                // Fatura adresi (bazen kargo adresiyle aynı)
                 if ($faker->boolean()) {
-                    $shippingAdd = $shipping->toArray();
-                    unset($shippingAdd['id']);
-                    $shippingAdd['type'] = 'billing';
-                    OrderAddress::factory()->create($shippingAdd);
+                    $billingData = $shippingData;
+                    $billingData['type'] = 'billing';
+                    unset($billingData['id']);
+                    OrderAddress::create($billingData);
                 } else {
-                    OrderAddress::factory()->create([
-                        'order_id' => $orderModel->id,
-                        'type' => 'billing',
-                        'country_id' => 235, // UK
-                    ]);
+                    $billingData = $this->createOrderAddressData($faker, $orderModel->id, 'billing', $countryId);
+                    OrderAddress::create($billingData);
                 }
 
                 $orderModel->lines()->createMany($lines->toArray());
             }
         });
+    }
+
+    /**
+     * Manuel sipariş adresi verisi oluşturur (factory locale sorunu nedeniyle).
+     */
+    private function createOrderAddressData(
+        \Faker\Generator $faker,
+        int $orderId,
+        string $type,
+        int $countryId
+    ): array {
+        return [
+            'order_id' => $orderId,
+            'country_id' => $countryId,
+            'type' => $type,
+            'title' => $faker->randomElement(['Mr', 'Mrs', 'Ms']),
+            'first_name' => $faker->firstName,
+            'last_name' => $faker->lastName,
+            'company_name' => $faker->boolean(30) ? $faker->company : null,
+            'line_one' => $faker->streetAddress,
+            'line_two' => null,
+            'line_three' => null,
+            'city' => $faker->city,
+            'state' => null,
+            'postcode' => $faker->postcode,
+            'delivery_instructions' => $faker->boolean(20) ? $faker->sentence : null,
+            'contact_email' => $faker->safeEmail,
+            'contact_phone' => $faker->phoneNumber,
+        ];
     }
 }

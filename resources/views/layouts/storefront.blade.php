@@ -7,11 +7,18 @@
         name="viewport"
         content="width=device-width, initial-scale=1"
     >
-    <title>Demo Storefront</title>
+    <title>{{ __('storefront/common.site.title') }}</title>
     <meta
         name="description"
-        content="Example of an ecommerce storefront built with Lunar."
+        content="{{ __('storefront/common.site.description') }}"
     >
+
+    {{-- Hreflang tags for SEO / SEO için hreflang etiketleri --}}
+    @foreach(config('localization.supported_locales', []) as $code => $locale)
+        <link rel="alternate" hreflang="{{ $code }}" href="{{ url()->current() }}?lang={{ $code }}" />
+    @endforeach
+    <link rel="alternate" hreflang="x-default" href="{{ url()->current() }}" />
+
     <link
         href="{{ asset('css/app.css') }}"
         rel="stylesheet"

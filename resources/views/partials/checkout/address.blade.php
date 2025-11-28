@@ -2,7 +2,7 @@
       class="bg-white border border-gray-100 rounded-xl">
     <div class="flex items-center justify-between h-16 px-6 border-b border-gray-100">
         <h3 class="text-lg font-medium">
-            {{ ucfirst($type) }} Details
+            {{ __('storefront/checkout.address.' . $type . '_details') }}
         </h3>
 
         @if ($type == 'shipping' && $step == $currentStep)
@@ -13,7 +13,7 @@
                        wire:model.live="shippingIsBilling" />
 
                 <span class="ml-2 text-xs font-medium">
-                    Same as billing
+                    {{ __('storefront/checkout.address.same_as_billing') }}
                 </span>
             </label>
         @endif
@@ -22,7 +22,7 @@
             <button class="px-5 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-700"
                     type="button"
                     wire:click.prevent="$set('currentStep', {{ $step }})">
-                Edit
+                {{ __('storefront/checkout.address.edit') }}
             </button>
         @endif
     </div>
@@ -32,7 +32,7 @@
             @if ($step == $currentStep)
                 <div class="grid grid-cols-6 gap-4">
                     <x-input.group class="col-span-3"
-                                   label="First name"
+                                   :label="__('storefront/checkout.address.first_name')"
                                    :errors="$errors->get($type . '.first_name')"
                                    required>
                         <x-input.text wire:model.live="{{ $type }}.first_name"
@@ -40,7 +40,7 @@
                     </x-input.group>
 
                     <x-input.group class="col-span-3"
-                                   label="Last name"
+                                   :label="__('storefront/checkout.address.last_name')"
                                    :errors="$errors->get($type . '.last_name')"
                                    required>
                         <x-input.text wire:model.live="{{ $type }}.last_name"
@@ -48,19 +48,19 @@
                     </x-input.group>
 
                     <x-input.group class="col-span-6"
-                                   label="Company name"
+                                   :label="__('storefront/checkout.address.company_name')"
                                    :errors="$errors->get($type . '.company_name')">
                         <x-input.text wire:model.live="{{ $type }}.company_name" />
                     </x-input.group>
 
                     <x-input.group class="col-span-6 sm:col-span-3"
-                                   label="Contact phone"
+                                   :label="__('storefront/checkout.address.contact_phone')"
                                    :errors="$errors->get($type . '.contact_phone')">
                         <x-input.text wire:model.live="{{ $type }}.contact_phone" />
                     </x-input.group>
 
                     <x-input.group class="col-span-6 sm:col-span-3"
-                                   label="Contact email"
+                                   :label="__('storefront/checkout.address.contact_email')"
                                    :errors="$errors->get($type . '.contact_email')"
                                    required>
                         <x-input.text wire:model.live="{{ $type }}.contact_email"
@@ -73,7 +73,7 @@
                     </div>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="Address line 1"
+                                   :label="__('storefront/checkout.address.line_one')"
                                    :errors="$errors->get($type . '.line_one')"
                                    required>
                         <x-input.text wire:model.live="{{ $type }}.line_one"
@@ -81,19 +81,19 @@
                     </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="Address line 2"
+                                   :label="__('storefront/checkout.address.line_two')"
                                    :errors="$errors->get($type . '.line_two')">
                         <x-input.text wire:model.live="{{ $type }}.line_two" />
                     </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="Address line 3"
+                                   :label="__('storefront/checkout.address.line_three')"
                                    :errors="$errors->get($type . '.line_three')">
                         <x-input.text wire:model.live="{{ $type }}.line_three" />
                     </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="City"
+                                   :label="__('storefront/checkout.address.city')"
                                    :errors="$errors->get($type . '.city')"
                                    required>
                         <x-input.text wire:model.live="{{ $type }}.city"
@@ -101,13 +101,13 @@
                     </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="State / Province"
+                                   :label="__('storefront/checkout.address.state')"
                                    :errors="$errors->get($type . '.state')">
                         <x-input.text wire:model.live="{{ $type }}.state" />
                     </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="Postcode"
+                                   :label="__('storefront/checkout.address.postcode')"
                                    :errors="$errors->get($type . '.postcode')"
                                    required>
                         <x-input.text wire:model.live="{{ $type }}.postcode"
@@ -115,11 +115,11 @@
                     </x-input.group>
 
                     <x-input.group class="col-span-6"
-                                   label="Country"
+                                   :label="__('storefront/checkout.address.country')"
                                    required>
                         <select class="w-full p-3 border border-gray-200 rounded-lg sm:text-sm"
                                 wire:model.live="{{ $type }}.country_id">
-                            <option value>Select a country</option>
+                            <option value>{{ __('storefront/checkout.address.select_country') }}</option>
                             @foreach ($this->countries as $country)
                                 <option value="{{ $country->id }}"
                                         wire:key="country_{{ $country->id }}">
@@ -135,7 +135,7 @@
                         <div class="space-y-4">
                             <div>
                                 <dt class="font-medium">
-                                    Name
+                                    {{ __('storefront/checkout.address.summary.name') }}
                                 </dt>
 
                                 <dd class="mt-0.5">
@@ -146,7 +146,7 @@
                             @if ($this->{$type}->company_name)
                                 <div>
                                     <dt class="font-medium">
-                                        Company
+                                        {{ __('storefront/checkout.address.summary.company') }}
                                     </dt>
 
                                     <dd class="mt-0.5">
@@ -158,7 +158,7 @@
                             @if ($this->{$type}->contact_phone)
                                 <div>
                                     <dt class="font-medium">
-                                        Phone Number
+                                        {{ __('storefront/checkout.address.summary.phone') }}
                                     </dt>
 
                                     <dd class="mt-0.5">
@@ -169,7 +169,7 @@
 
                             <div>
                                 <dt class="font-medium">
-                                    Email
+                                    {{ __('storefront/checkout.address.summary.email') }}
                                 </dt>
 
                                 <dd class="mt-0.5">
@@ -181,7 +181,7 @@
 
                     <div>
                         <dt class="font-medium">
-                            Address
+                            {{ __('storefront/checkout.address.summary.address') }}
                         </dt>
 
                         <dd class="mt-0.5">
@@ -214,13 +214,13 @@
                             wire:target="saveAddress">
                         <span wire:loading.remove
                               wire:target="saveAddress">
-                            Save Address
+                            {{ __('storefront/checkout.address.save') }}
                         </span>
 
                         <span wire:loading
                               wire:target="saveAddress">
                             <span class="inline-flex items-center">
-                                Saving
+                                {{ __('storefront/checkout.address.saving') }}
 
                                 <x-icon.loading />
                             </span>

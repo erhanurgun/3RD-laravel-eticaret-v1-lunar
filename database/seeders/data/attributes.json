@@ -1,6 +1,6 @@
 [
     {
-        "name": "Details",
+        "name": "Detaylar",
         "handle": "details",
         "type": "Lunar\\FieldTypes\\ListField",
         "attribute_type": "Lunar\\Models\\Product",

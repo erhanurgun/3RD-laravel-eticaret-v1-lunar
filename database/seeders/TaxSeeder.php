@@ -7,43 +7,59 @@ use Lunar\Models\Country;
 use Lunar\Models\TaxClass;
 use Lunar\Models\TaxRate;
 use Lunar\Models\TaxZone;
-use Lunar\Models\TaxZoneCountry;
 
 class TaxSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Türkiye için KDV oranları oluşturur.
      */
     public function run(): void
     {
-        $taxClass = TaxClass::first();
+        $taxClass = TaxClass::getDefault();
 
-        $ukCountry = Country::firstWhere('iso3', 'GBR');
+        if (!$taxClass) {
+            return;
+        }
 
-        $ukTaxZone = TaxZone::factory()->create([
-            'name' => 'UK',
-            'active' => true,
-            'default' => true,
-            'zone_type' => 'country',
-        ]);
+        $turkey = Country::where('iso3', 'TUR')->first();
 
-        TaxZoneCountry::factory()->create([
-            'country_id' => $ukCountry->id,
-            'tax_zone_id' => $ukTaxZone->id,
-        ]);
+        if (!$turkey) {
+            return;
+        }
 
-        $ukRate = TaxRate::factory()->create([
-            'name' => 'VAT',
-            'tax_zone_id' => $ukTaxZone->id,
+        // Mevcut varsayılan vergi bölgesini kullan veya yeni oluştur
+        $taxZone = TaxZone::whereDefault(true)->first();
+
+        if (!$taxZone) {
+            $taxZone = TaxZone::create([
+                'name' => 'Türkiye',
+                'active' => true,
+                'default' => true,
+                'zone_type' => 'country',
+                'price_display' => 'tax_inclusive',
+            ]);
+
+            $taxZone->countries()->create([
+                'country_id' => $turkey->id,
+            ]);
+        }
+
+        // Mevcut vergi oranı var mı kontrol et
+        if ($taxZone->taxRates()->exists()) {
+            return;
+        }
+
+        // Türkiye KDV oranı (%20)
+        $taxRate = TaxRate::create([
+            'name' => 'KDV',
+            'tax_zone_id' => $taxZone->id,
             'priority' => 1,
         ]);
 
-        $ukRate->taxRateAmounts()->createMany([
-            [
-                'percentage' => 20,
-                'tax_class_id' => $taxClass->id,
-            ],
+        $taxRate->taxRateAmounts()->create([
+            'percentage' => 20,
+            'tax_class_id' => $taxClass->id,
         ]);
     }
 }

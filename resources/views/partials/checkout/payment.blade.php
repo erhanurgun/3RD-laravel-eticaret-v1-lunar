@@ -1,7 +1,7 @@
 <div class="bg-white border border-gray-100 rounded-xl">
     <div class="flex items-center h-16 px-6 border-b border-gray-100">
         <h3 class="text-lg font-medium">
-            Payment
+            {{ __('storefront/checkout.payment.title') }}
         </h3>
     </div>
 
@@ -15,7 +15,7 @@
                 ])
                         type="button"
                         wire:click.prevent="$set('paymentType', 'card')">
-                    Pay by card
+                    {{ __('storefront/checkout.payment.pay_by_card') }}
                 </button>
 
                 <button @class([
@@ -25,7 +25,7 @@
                 ])
                         type="button"
                         wire:click.prevent="$set('paymentType', 'cash-in-hand')">
-                    Pay with cash
+                    {{ __('storefront/checkout.payment.pay_with_cash') }}
                 </button>
             </div>
 
@@ -37,7 +37,7 @@
             @if ($paymentType == 'cash-in-hand')
                 <form wire:submit="checkout">
                     <div class="p-4 text-sm text-center text-blue-700 rounded-lg bg-blue-50">
-                        Payment is offline, no card details needed.
+                        {{ __('storefront/checkout.payment.offline_notice') }}
                     </div>
 
                     <button class="px-5 py-3 mt-4 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500"
@@ -45,7 +45,7 @@
                             wire:key="payment_submit_btn">
                         <span wire:loading.remove.delay
                               wire:target="checkout">
-                            Submit Order
+                            {{ __('storefront/checkout.payment.submit_order') }}
                         </span>
                         <span wire:loading.delay
                               wire:target="checkout">

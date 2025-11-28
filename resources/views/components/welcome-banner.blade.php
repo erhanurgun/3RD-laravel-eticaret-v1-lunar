@@ -2,23 +2,17 @@
     <div class="max-w-screen-xl px-4 py-32 mx-auto sm:px-6 lg:px-8">
         <div class="max-w-xl mx-auto text-center">
             <h1 class="text-3xl font-extrabold sm:text-5xl">
-                Welcome to the
+                {{ __('storefront/common.welcome.title') }}
 
                 <span class="text-indigo-600">
-                    Lunar
+                    {{ __('storefront/common.welcome.lunar') }}
                 </span>
 
-                Demo Store
-
-                <span role="img"
-                      aria-hidden="true">
-                    👋
-                </span>
+                {{ __('storefront/common.welcome.demo_store') }}
             </h1>
 
             <p class="mt-4 font-medium sm:leading-relaxed sm:text-xl">
-                This is an example of a classic e-commerce store built with Lunar.
-                We are currently making a screencast series to show you how we did it!
+                {{ __('storefront/common.welcome.description') }}
             </p>
 
             <div class="flex flex-wrap justify-center gap-4 mt-8">
@@ -26,14 +20,14 @@
                    href="https://lunarphp.io/"
                    target="_blank"
                    rel="noopener noreferrer">
-                    Lunar Website
+                    {{ __('storefront/common.welcome.lunar_website') }}
                 </a>
 
                 <a class="block w-full px-12 py-3 font-medium text-indigo-600 rounded shadow sm:w-auto hover:text-indigo-700 active:text-indigo-500 focus:outline-none focus:ring"
                    href="https://github.com/lunarphp/demo-store"
                    target="_blank"
                    rel="noopener noreferrer">
-                    Demo Store Repo
+                    {{ __('storefront/common.welcome.demo_repo') }}
                 </a>
             </div>
         </div>

@@ -14,12 +14,22 @@ class AttributeSeeder extends AbstractSeeder
      */
     public function run(): void
     {
-        $attributes = $this->getSeedData('attributes');
+        // Product attribute grubunu bul
+        $attributeGroup = AttributeGroup::where('attributable_type', 'product')->first();
 
-        $attributeGroup = AttributeGroup::first();
+        if (!$attributeGroup) {
+            return;
+        }
+
+        $attributes = $this->getSeedData('attributes');
 
         DB::transaction(function () use ($attributes, $attributeGroup) {
             foreach ($attributes as $attribute) {
+                // Aynı handle'a sahip attribute varsa atla
+                if (Attribute::where('handle', $attribute->handle)->exists()) {
+                    continue;
+                }
+
                 Attribute::create([
                     'attribute_group_id' => $attributeGroup->id,
                     'attribute_type' => $attribute->attribute_type,
@@ -32,10 +42,10 @@ class AttributeSeeder extends AbstractSeeder
                     'system' => false,
                     'position' => $attributeGroup->attributes()->count() + 1,
                     'name' => [
-                        'en' => $attribute->name,
+                        'tr' => $attribute->name,
                     ],
                     'description' => [
-                        'en' => $attribute->name,
+                        'tr' => $attribute->name,
                     ],
                     'configuration' => (array) $attribute->configuration,
                 ]);

@@ -1,18 +1,18 @@
 [
     {
-        "name": "Shoes",
-        "description": "Collection of Shoes"
+        "name": "Ayakkabılar",
+        "description": "Ayakkabı Koleksiyonu"
     },
     {
-        "name": "Trousers",
-        "description": "Collection of Trousers"
+        "name": "Pantolonlar",
+        "description": "Pantolon Koleksiyonu"
     },
     {
-        "name": "Hoodies",
-        "description": "Collection of Hoodies"
+        "name": "Kapşonlular",
+        "description": "Kapşonlu Koleksiyonu"
     },
     {
-        "name": "Sale",
-        "description": "50% OFF Selected Items"
+        "name": "İndirim",
+        "description": "Seçili Ürünlerde %50 İndirim"
     }
 ]

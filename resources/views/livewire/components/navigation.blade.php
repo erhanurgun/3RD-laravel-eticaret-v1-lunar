@@ -5,7 +5,7 @@
                href="{{ url('/') }}"
                wire:navigate
             >
-                <span class="sr-only">Home</span>
+                <span class="sr-only">{{ __('storefront/navigation.home') }}</span>
 
                 <x-brand.logo class="w-auto h-6 text-indigo-600" />
             </a>
@@ -26,12 +26,14 @@
             <x-header.search class="max-w-sm mr-4" />
 
             <div class="flex items-center -mr-4 sm:-mr-6 lg:mr-0">
+                @livewire('components.language-switcher')
+
                 @livewire('components.cart')
 
                 <div x-data="{ mobileMenu: false }">
                     <button x-on:click="mobileMenu = !mobileMenu"
                             class="grid flex-shrink-0 w-16 h-16 border-l border-gray-100 lg:hidden">
-                        <span class="sr-only">Toggle Menu</span>
+                        <span class="sr-only">{{ __('storefront/navigation.toggle_menu') }}</span>
 
                         <span class="place-self-center">
                             <svg xmlns="http://www.w3.org/2000/svg"
