@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
             ->panel(
                 fn ($panel) => $panel
                     ->path('admin')
+                    ->favicon(asset('upload/favicon.svg'))
+                    ->brandLogo(asset('upload/logo/dark.svg'))
+                    ->darkModeBrandLogo(asset('upload/logo/light.svg'))
+                    ->brandLogoHeight('2rem')
                     ->plugins([
                         new ShippingPlugin,
                         TwoFactorAuthenticationPlugin::make()
